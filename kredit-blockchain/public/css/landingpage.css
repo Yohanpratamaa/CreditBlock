@@ -1,0 +1,115 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animasi untuk swipe otomatis dari kanan ke kiri */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes marquee-2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-30%);
+    }
+}
+
+.marquee {
+    display: flex;
+    animation: marquee 15s linear infinite;
+    width: fit-content;
+}
+
+.marquee-2 {
+    display: flex;
+    animation: marquee-2 15s linear infinite;
+    width: fit-content;
+}
+
+/* Pastikan konten marquee memiliki lebar yang sesuai */
+.marquee-content {
+    flex-shrink: 0;
+}
+
+.marquee-items {
+    flex-shrink: 0;
+}
+
+/* Pause animasi saat hover */
+.marquee:hover {
+    animation-play-state: paused;
+}
+
+.marquee-2:hover {
+    animation-play-state: paused;
+}
+
+
+/* Animasi Muncul ketika refresh */
+.hidden-animated {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-100px);
+    transition: opacity 1.5s ease, filter 1.5s ease-in-out, transform 1.5s ease;
+}
+
+.show-animated {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.explanation {
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.explanation.active {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Table styles for amortization schedule */
+#calculation-results table td {
+    text-align: left;
+    font-size: 0.875rem;
+    color: #1A202C;
+}
+
+/* Ensure select elements match input styling */
+select {
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(17, 103, 177, 0.2);
+}
+
+/* Results section animation */
+#calculation-results.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#calculation-results.show-animated {
+    opacity: 1;
+    transform: translateY(0);
+}
